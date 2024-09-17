@@ -1,0 +1,30 @@
+# Valid coffee names
+valid_coffees = [
+  "HCP Aeropress",
+  "Packer Spiced Latte",
+  "Vaulatte",
+  "Nomadicano",
+  "Terraspresso",
+  "Vagrante espresso",
+  "Connectaccino",
+  "Boundary Red Eye",
+  "Waypointiato",
+]
+
+valid_sizes = ["small", "medium", "large"]
+
+# Validate coffee name
+validate_name = rule {
+  "HCP Aeropress" in valid_coffees
+}
+
+# Validate coffee size
+validate_size = rule {
+  "small" in valid_sizes
+}
+
+# Main rule to validate a coffee order
+main = rule {
+  validate_name and
+  validate_size
+}
