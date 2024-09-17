@@ -1,6 +1,5 @@
 # Parameters and variables
-param coffee_name default "HCP Aeropress"
-param coffee_size default "small"
+param order default { "items": [{ "name" : "Vaulatte", "size" : "medium" } ] }
 
 # Valid coffee names
 valid_coffees = [
@@ -20,17 +19,19 @@ valid_sizes = ["small", "medium", "large"]
 ## Rules
 
 # Validate coffee name
-validate_name = rule {
-  coffee_name in valid_coffees
+validate_name = func(name) {
+  return name in valid_coffees
 }
 
 # Validate coffee size
-validate_size = rule {
-  coffee_size in valid_sizes
+validate_size = func(size) {
+  return size in valid_sizes
 }
 
 # Main rule to validate a coffee order
 main = rule {
-  validate_name and
-  validate_size
+  all order.items as item {
+    validate_name(item.name) and
+    validate_size(item.size)
+  }
 }
