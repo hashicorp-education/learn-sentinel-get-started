@@ -1,3 +1,7 @@
+# Parameters and variables
+param coffee_name default "HCP Aeropress"
+param coffee_size default "small"
+
 # Valid coffee names
 valid_coffees = [
   "HCP Aeropress",
@@ -13,14 +17,16 @@ valid_coffees = [
 
 valid_sizes = ["small", "medium", "large"]
 
+## Rules
+
 # Validate coffee name
 validate_name = rule {
-  "HCP Aeropress" in valid_coffees
+  coffee_name in valid_coffees
 }
 
 # Validate coffee size
 validate_size = rule {
-  "small" in valid_sizes
+  coffee_size in valid_sizes
 }
 
 # Main rule to validate a coffee order
