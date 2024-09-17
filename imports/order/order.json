@@ -2,13 +2,11 @@
   "items": [
     {
       "name":     "Vaulatte",
-      "size":     "medium",
-      "quantity": 2
+      "size":     "medium"
     },
     {
       "name":     "Nomadicano",
-      "size":     "large",
-      "quantity": 1
+      "size":     "large"
     }
   ]
 }
