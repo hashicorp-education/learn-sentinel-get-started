@@ -1,3 +1,7 @@
+import "module" "hashicups" {
+  source = "./imports/modules/helper/hashicups.sentinel"
+}
+
 policy "validate_coffee_order" {
   source = "./policies/validate_coffee_order.sentinel"
 }

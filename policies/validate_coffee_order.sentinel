@@ -1,37 +1,12 @@
+import "hashicups"
+
 # Parameters and variables
 param order default { "items": [{ "name" : "Vaulatte", "size" : "medium" } ] }
-
-# Valid coffee names
-valid_coffees = [
-  "HCP Aeropress",
-  "Packer Spiced Latte",
-  "Vaulatte",
-  "Nomadicano",
-  "Terraspresso",
-  "Vagrante espresso",
-  "Connectaccino",
-  "Boundary Red Eye",
-  "Waypointiato",
-]
-
-valid_sizes = ["small", "medium", "large"]
-
-## Rules
-
-# Validate coffee name
-validate_name = func(name) {
-  return name in valid_coffees
-}
-
-# Validate coffee size
-validate_size = func(size) {
-  return size in valid_sizes
-}
 
 # Main rule to validate a coffee order
 main = rule {
   all order.items as item {
-    validate_name(item.name) and
-    validate_size(item.size)
+    hashicups.validate_name(item.name) and
+    hashicups.validate_size(item.size)
   }
 }
