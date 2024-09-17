@@ -1,7 +1,5 @@
 import "hashicups"
-
-# Parameters and variables
-param order default { "items": [{ "name" : "Vaulatte", "size" : "medium" } ] }
+import "order"
 
 # Main rule to validate a coffee order
 main = rule {
